@@ -1,42 +1,130 @@
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
-html,
+/* Global Styles */
 body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  font-family: 'Roboto', sans-serif; 
+  line-height: 1.6;
+  background-color: #f0f4f8; 
+  color: #333;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.page-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 2rem 0;
+  color: #007bff; 
+  font-weight: 700;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* Grid Layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+  gap: 24px;
+  padding: 32px;
+  max-width: 1200px;
+  margin: 0 auto; 
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Book Card */
+.book-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-5px); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.book-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 12px 0 8px;
+  color: #333;
+}
+
+.book-author {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 16px;
+}
+
+.book-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+/* Responsive Grid Layout */
+@media (max-width: 768px) { 
+  .grid-container {
+    padding: 16px;
   }
 }
+
+/* Button Styles */
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0;
+}
+
+.next-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.next-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05); 
+}
+
+.next-button:active {
+  transform: scale(1); 
+}
+
+/* Mobile-Friendly Button */
+@media (max-width: 768px) {
+  .next-button {
+    width: 100%; 
+    max-width: 300px;
+  }
+}
+
+
+/* HTML: <div class="loader"></div> */
+.main{
+  width: 100%;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loader {
+  width: fit-content;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 30px;
+  padding-bottom: 8px;
+  background: linear-gradient(currentColor 0 0) 0 100%/0% 3px no-repeat;
+  animation: l2 2s linear infinite;
+}
+.loader:before {
+  content:"Loading..."
+}
+@keyframes l2 {to{background-size: 100% 3px}}
