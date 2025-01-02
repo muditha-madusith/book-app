@@ -16,7 +16,7 @@ const fetchBooks = async (page: number): Promise<Book[]> => {
   const startIndex = (page - 1) * 10;
   try {
     const response = await fetch(
-      `https://www.googleapis.com/books/v1/volumes?q=devops=free-ebooks&startIndex=${startIndex}&maxResults=12&key=AIzaSyD1rS30pQ3_2H7TOOiIYGgq_cuhh7OPUFc`
+      `https://www.googleapis.com/books/v1/volumes?q=devops=free-ebooks&startIndex=${startIndex}&maxResults=12&key=YourApIKey`
     );
     if (!response.ok) {
       throw new Error("Failed to fetch books");
